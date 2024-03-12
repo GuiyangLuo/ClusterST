@@ -1,0 +1,58 @@
+# --- Defaults ---
+
+generate_dataset: False
+dataset_name: metr-la # pems-bay  #metr-la
+#------------------
+fusion: 'concat' #  static dynamic, concat
+random_seed: 3998
+
+device: 'cuda:0'    # Only Gpu version is supported.
+batch_size: 64
+epochs:  174
+learning_rate: 0.001 # 0.001
+
+lr_decay: True
+lr_decay_rate: 0.5
+lr_decay_step:   20,  60, 100, 235, 270, 300
+
+in_dims: 1
+num_nodes: 64
+nhid: 24
+dropour_rate: 0
+weight_decay: 0
+print_every: 100
+exp_id: 1
+use_tensorboard: True
+
+##
+#----------------- parameters for residual Networks
+resnet_layers: [1, 2, 3, 4]
+channels_conv_start_layer: 32
+channels_conv_extractor_out: 156
+max_allow_spatial_conv: 2
+max_allow_dilation: 2
+
+
+Version_id: v_EA
+cur_model: 'model_EGCN' ###  model_EGCN
+
+###----------------- parameters for NIPS
+#----------------- parameters for GRU dynamic network
+normalized_k: 0.1
+dynamic_gru_feature_size: 6
+static_feature_size: 12
+gru_number_of_layers: 3
+gru_bidirectional: False
+gcn_n_class: 5
+neighbors_for_each_nodes: 10
+### for VRAE
+vrae_hidden_size: 10
+vrae_hidden_layer_depth: 2
+vrae_latent_length: 5
+vrae_dropout_rate: 0
+vrae_rnn_model: 'LSTM' # or GRU
+simi_metric: 'euc' # euc
+
+centroid_way: 'cluster_3' # attention_multihead  attention
+
+
